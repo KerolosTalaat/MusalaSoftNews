@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-	StyleSheet,
 	View,
 	Image,
 	TouchableWithoutFeedback
@@ -12,13 +11,25 @@ import MSNText from '../MSNText';
 
 import styles from './NewsCard.Styles'
 
-const NewsCard = ({ onPress, news }) => {
+export interface newsProps {
+	title?: string;
+	urlToImage?: string;
+	publishedAt?: string;
+}
+
+export type Props = {
+	news: newsProps;
+  onPress(): null|void;
+};
+
+const NewsCard: React.FC<Props> = ({ onPress = () => null, news = {} }) => {
 	const { colors } = useTheme();
 	const {
 		title,
 		urlToImage,
-		publishedAt,
-	} = news || {};
+		publishedAt
+	} = news;
+
 	return (
 		<TouchableWithoutFeedback onPress={onPress}>
 			<View style={styles.cardContainer(colors)}>

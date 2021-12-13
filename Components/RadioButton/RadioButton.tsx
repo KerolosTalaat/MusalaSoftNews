@@ -4,7 +4,12 @@ import { useTheme } from '@react-navigation/native';
 
 import styles from './RadioButton.Styles';
 
-const RadioButton = ({
+export type Props = {
+  selected?: boolean;
+  onPress(): null|void;
+};
+
+const RadioButton: React.FC<Props> = ({
   selected = null,
   onPress = () => null,
 }) => {

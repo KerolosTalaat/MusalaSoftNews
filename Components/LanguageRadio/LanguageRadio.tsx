@@ -6,14 +6,19 @@ import  MSNText from '../MSNText'
 
 import styles from './LanguageRadio.Styles'
 
-function LanguageRadio({ title, isSelected, onPress }) {
+export type Props = {
+  title: string;
+  isSelected?: boolean;
+  onPress(): null|void;
+};
+
+const LanguageRadio: React.FC<Props> = ({ title, isSelected, onPress }) => {
   return (
     <View style={styles.radioContainer}>
       <MSNText text={title} style={styles.text} />
 
       <RadioButton
         selected={isSelected}
-        style={styles.radio}
         onPress={onPress}
       />
     </View>

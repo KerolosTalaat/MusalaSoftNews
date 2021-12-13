@@ -5,7 +5,11 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 import styles from './SearchBar.Styles';
 
-const SearchBar = ({ onSearch }) => {
+export type Props = {
+	onSearch(searchText: string): null|void;
+  };
+  
+const SearchBar: React.FC<Props> = ({ onSearch = () => null }) => {
 	const [searchText, setSearchText] = useState("");
 	
 	const { colors } = useTheme();
