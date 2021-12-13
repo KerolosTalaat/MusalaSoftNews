@@ -12,6 +12,9 @@ target 'MusalaSoftNews' do
     :hermes_enabled => false
   )
 
+  # Pods for MusalaSoftNews
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'MusalaSoftNewsTests' do
     inherit! :complete
     # Pods for testing
